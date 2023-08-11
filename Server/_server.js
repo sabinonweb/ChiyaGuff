@@ -1,49 +1,36 @@
 const http = require("http");
 const fs = require("fs");
-const lo = require("lodash");
 
-const _server = http.createServer((request, response) => {
-  const number = lo.random(0, 20);
-  console.log(number);
-
-  const greet = lo.once(() => {
-    console.log("Good Morning");
-  });
-
-  greet();
-
-  let path = "../view/";
-
-  switch (request.url) {
+//server
+const _server = http.createServer((req, res) => {
+  let path = "../file";
+  switch (req.url) {
     case "/":
-      path += "index.html";
-      response.statusCode = 200;
+      path += "/index.html";
+      res.statusCode = 200;
       break;
     case "/about":
-      path += "about.html";
-      response.statusCode = 200;
+      path += "/about.html";
+      res.statusCode = 200;
       break;
-    case "/about-me":
-      response.statusCode = 301;
-      response.setHeader("Location", "/about");
+    case "/about-us":
+      res.setHeader("Location", "about.html");
       break;
     default:
-      path += "404.html";
-      response.statusCode = 404;
-      break;
+      path += "/404.html";
+      res.statusCode = 404;
   }
 
-  response.setHeader("Content-type", "text/html");
-
-  fs.readFile(path, (error, data) => {
-    if (error) {
-      console.log(error);
-      response.end();
+  //reading the files
+  fs.readFile(path, (err, data) => {
+    if (err) {
+      console.log(err);
     } else {
-      response.end(data);
+      res.end(data);
     }
   });
 });
-_server.listen("3000", "localhost", () => {
-  console.log("Listening to events at port 3000");
+
+_server.listen("3002", "localhost", () => {
+  console.log("Listening to objects at port 3002");
 });
