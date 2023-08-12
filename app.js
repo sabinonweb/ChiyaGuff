@@ -7,7 +7,16 @@ app.set("view engine", "ejs");
 app.listen("3000");
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+  const blogs = [
+    { title: "AI AI Captain", snippet: "djsvnj jbdfnvsknk ijdnf ndlsfk" },
+    { title: "jfdvdfvdf", snippet: "jnjvnfdjkvnfdklvnsdfvkfsvsfdvdf" },
+    {
+      title: "jndcjsdn",
+      snippet:
+        "qiuehfinksjcmadcdsjcndksmlcdjckdsk sddfdskfjsdidkf sdk k ksdmfk s",
+    },
+  ];
+  res.render("index", { title: "Home", blogs });
 });
 
 app.get("/create/blog", (req, res) => {
