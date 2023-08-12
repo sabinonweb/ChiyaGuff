@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %> 
+<body>
+  
+  <%- include('./partials/nav.ejs') %>   <!--equals to sign gives the text itself -->
+
+    <div class="blogs content">
+        <h2>ALL BLOGS</h2>
+        <% if (blogs.length != 0) {%>
+            <% blogs.forEach(blog => { %>
+                <h3><%= blog.title %></h3>
+                <h5><%= blog.snippet %></h5>
+            <% }) %>
+        <% } else { %>
+            <h3>Nothing to display.</h3>
+        <% } %>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
+
