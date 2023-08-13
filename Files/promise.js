@@ -1,6 +1,24 @@
-const greet = (name) => {
-  console.log(`Good Morning, ${name}`);
-};
+const food = new Promise((resolve, reject) => {
+  const f = "Nah";
 
-greet("Joshep");
-greet("Bhola");
+  if (f == "Momo") {
+    resolve("Momo!");
+  } else {
+    reject("dumbo");
+  }
+});
+
+food.then(
+  (food) => {
+    console.log("Aha this is ", food);
+  },
+  (message) => {
+    console.log("You are a ", message);
+  }
+);
+// .then((food) => {
+//   console.log("This is ", food);
+// })
+// .catch((message) => {
+//   console.log("You are a ", message);
+// });

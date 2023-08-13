@@ -1,18 +1,24 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+
+const dataBaseURI =
+  "mongodb+srv://sabinonweb:yacht789@cluster0.ex4ipp8.mongodb.net/?retryWrites=true&w=majority";
+mongoose
+  .connect(dataBaseURI)
+  .then((result) => {
+    app.listen("3000");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.set("view engine", "ejs");
 // app.set('views', 'views') : specify where to look
 
-app.listen("3000");
-
-app.use((req, res, next) => {
-  console.log("Here we go.");
-  console.log("Host: ", req.hostname);
-  console.log("Path: ", req.path);
-  console.log("Method: ", req.method);
-  next();
-});
+app.use(express.static("public"));
+app.use(morgan("tiny")); //middleware use
 
 app.get("/", (req, res) => {
   const blogs = [

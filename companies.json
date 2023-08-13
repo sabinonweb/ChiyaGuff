@@ -1,0 +1,14 @@
+[
+    {
+        "nmae" : "abc",
+        "Employees" : 10000,
+        "CEO" : "Bob",
+        "rating" : 3.6
+    },
+    {
+        "nmae" : "def",
+        "Employees" : 100,
+        "CEO" : null,
+        "rating" : 4.3
+    }
+]

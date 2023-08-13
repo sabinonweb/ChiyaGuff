@@ -1,0 +1,15 @@
+{
+  "name": "Sabin",
+  "stack": "MERN",
+  "isProgrammer": true,
+  "hobbies": ["Reading", "Writing", "Coding", "Playing Guitar"],
+  "friends": [
+    {
+      "name": "Sabin",
+      "stack": "MERN",
+      "isProgrammer": true,
+      "hobbies": ["Reading", "Writing", "Coding", "Playing Guitar"],
+      "friends": [{}]
+    }
+  ]
+}
