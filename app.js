@@ -3,9 +3,9 @@ const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const Blog = require("./models/blog.js");
+const URI = require("./config.json");
 
-const dataBaseURI =
-  "mongodb+srv://sabinonweb:mongodb@cluster0.ex4ipp8.mongodb.net/WebBlogs?retryWrites=true&w=majority";
+const dataBaseURI = URI;
 
 mongoose
   .connect(dataBaseURI)
